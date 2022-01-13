@@ -16,6 +16,7 @@ def get_arguments():
 
 	# define the structure of the second argument
 	parser.add_option("-m", "--mac", dest="new_mac", help="New Mac address")
+
 	# get arguments :
 	# arguments.interface = "-i" or "--interface"
 	# arguments.new_mac = "-m" or "--mac"
