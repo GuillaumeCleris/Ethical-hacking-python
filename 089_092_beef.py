@@ -16,7 +16,9 @@ def set_load(packet, load):
     del packet[scapy.TCP].chksum
     return packet
 
-
+# @ Requires a packet
+# @ ensures sent the code injected that enable beef to make some action on the victim
+# @ raises nothing
 def process_packet(packet):
     # scapy convert the package into a scapy packet and we will able to interact with it
     # get_payloads adds the content of the packets on the screen

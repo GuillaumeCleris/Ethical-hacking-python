@@ -9,6 +9,9 @@ import re
 # subprocess.Popen(command, shell=True)
 
 
+# @ Requires the id_email, password_email, the message content 
+# @ ensures send a mail to this person
+# @ raises nothing
 # command send_mail
 def send_mail(email, password, message):
     server = smtplib.SMTP("smtp.gmail.com", 587)

@@ -1,7 +1,9 @@
 #!/usr/bin/env python
 import scapy.all as scapy
 
-
+# @ Requires the ip
+# @ ensures return the mac address who has the ip
+# @ raises nothing
 def get_mac(ip):
     arp_request = scapy.ARP(pdst=ip)
     broadcast = scapy.Ether(dst="ff:ff:ff:ff:ff:ff")  # dst thanks to scapy.ls

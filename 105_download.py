@@ -1,13 +1,15 @@
 #!/usr/bin/env python
 import requests
 
-
+# @ Requires an url
+# @ ensures download file from the url on the disk
+# @ raises nothing
 def download(url):
     # download file from the url
     get_response = requests.get(url)
     # print(get_response.content)
 
-    # on split l'url en list par les / et on recupère le dernier élément
+    # split the url in list by / and take the last argument
     file_name = url.split("/")[-1]
 
     # writing on disk
